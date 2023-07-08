@@ -17,24 +17,34 @@
             $uri = explode('/', $_SERVER['REQUEST_URI']);
         
             if($_SERVER['REQUEST_URI'] === '/company'){
-                $company->getAll();
+                echo $company->getAll();
             }else if(array_key_exists(2, $uri) && is_numeric($uri[2])){
-                $company->getCompany($uri[2]);
+                echo $company->getCompany($uri[2]);
             }else{
                 echo 'endpoint inválido';
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'POST'){
         
             if($_SERVER['REQUEST_URI'] === '/company'){
-                echo $company->createCompany();
+                // Obter o corpo da solicitação PUT
+                $putData = file_get_contents("php://input");
+
+                // Converter o corpo da solicitação em uma matriz associativa
+                $dadosPUT = json_decode($putData, true);
+                echo $company->createCompany($dadosPUT);
             }else{
                 echo 'endpoint inválido';
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'PUT'){
+
             $uri = explode('/', $_SERVER['REQUEST_URI']);
             
             if(array_key_exists(2, $uri) && is_numeric($uri[2]) && $uri[1] === 'company'){
-                echo $company->updateCompany($uri[2]);
+                
+                $putData = file_get_contents("php://input");
+                $dadosPUT = json_decode($putData, true);
+
+                echo $company->updateCompany($uri[2], $dadosPUT);
             }else{
                 echo 'endpoint inválido';
             }

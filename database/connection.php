@@ -6,11 +6,11 @@ function createConnection(){
 
     $host = 'localhost';
     $username = 'root';
-    $password = '@root11';
-    $database = 'gerenciador_de_campanhas';
+    $password = '';
+    $database = 'campanhas';
 
     // Criação da conexão
-    $conn = new mysqli($host, $username, $password, $database);
+    $conn = new mysqli($host, $username, $password, $database, 3307);
 
     // Verificação de erros de conexão
     if ($conn->connect_error) {
