@@ -1,12 +1,30 @@
 <?php
-// CompanyController.php
+require_once 'models/Company.php';
+
 class CompanyController {
+    private $company;
+
+    public function __construct() {
+        $this->company = new Company();
+    }
+
     public function getAll() {
-       return 'getAll() da controller';
+        $companies = $this->company->getAll();
+        
+        // Defino o cabeçalho de resposta como JSON
+        header('Content-Type: application/json');
+
+        echo $companies;
     }
 
     public function getCompany($id) {
-        return 'getID() da controller';
+        $companyByd = $this->company->getCompany($id);
+
+        // Defino o cabeçalho de resposta como JSON
+        header('Content-Type: application/json');
+
+        echo
+         $companyByd;
     }
 
     public function createCompany() {

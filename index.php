@@ -17,9 +17,9 @@
             $uri = explode('/', $_SERVER['REQUEST_URI']);
         
             if($_SERVER['REQUEST_URI'] === '/company'){
-                echo $company->getAll();
+                $company->getAll();
             }else if(array_key_exists(2, $uri) && is_numeric($uri[2])){
-                echo $company->getCompany($uri[2]);
+                $company->getCompany($uri[2]);
             }else{
                 echo 'endpoint inválido';
             }

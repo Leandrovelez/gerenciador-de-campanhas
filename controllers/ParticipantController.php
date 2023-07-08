@@ -1,12 +1,21 @@
 <?php
-// ParticipantController.php
+require_once 'models/Participant.php';
+
 class ParticipantController {
+    private $participant;
+
+    public function __construct() {
+        $this->participant = new Participant();
+    }
+
     public function getAll() {
-        return 'getAll() participant';
+        $participants = $this->participant->getAll();
+        return $participants;
     }
 
     public function getParticipant($id) {
-        return 'getID() participant';
+        $participants = $this->participant->getAll();
+        return $participants;
     }
 
     public function createParticipant() {

@@ -1,8 +1,16 @@
 <?php
-// CampagnController.php
+require 'models/Campagn.php';
+
 class CampagnController {
+    private $campagn;
+
+    public function __construct() {
+        $this->campagn = new Campagn();
+    }
+
     public function getAll() {
-        return 'getAll() campagn';
+        $campagns = $this->campagn->getAll();
+        return $campagn;
     }
 
     public function getCampagn($id) {
