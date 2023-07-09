@@ -1,6 +1,11 @@
 <?php
 require_once 'database/connection.php';
 
+/**
+ * Campagn class
+ *
+ * 
+ */ 
 class Campagn {
 
     private $conn;
@@ -65,7 +70,12 @@ class Campagn {
     public function setDataTermino($data_termino){
         $this->data_termino = $data_termino;
     }
-
+    
+    /**
+     * Gets all campagns.
+     *
+     * Returns an array
+     */ 
     public function getAll() {
         $query = "SELECT * FROM campanhas";
         
@@ -83,6 +93,11 @@ class Campagn {
 
     }
 
+    /**
+     * Gets the campagn with the settled id.
+     *
+     * Returns an array
+     */ 
     public function getCampagnById() {
         $query = "SELECT * FROM campanhas where id = {$this->id}";
         
@@ -97,6 +112,11 @@ class Campagn {
 
     }
 
+    /**
+     * Create a campagn with the settled params.
+     *
+     * Returns a boolean
+     */ 
     public function createCampagn() {
         $query = "INSERT INTO campanhas (titulo, descricao, empresa_id, data_inicio, data_termino) VALUES (?, ?, ?, ?, ?)";
 
@@ -106,6 +126,11 @@ class Campagn {
         return $stmt->execute(); 
     }
 
+    /**
+     * Updates a campagn with the settled id.
+     *
+     * Returns a boolean
+     */ 
     public function updateCampagn() {
         $query = "UPDATE CAMPANHAS SET titulo = ?, descricao = ?, empresa_id = ?, data_inicio = ?, data_termino = ? WHERE ID = ?";
 
@@ -115,6 +140,11 @@ class Campagn {
         return $stmt->execute();  
     }
 
+    /**
+     * Delets a campagn with the settled id.
+     *
+     * Returns a boolean
+     */ 
     public function deleteCampagn() {
         $query = "DELETE FROM CAMPANHAS WHERE ID = ?";
 

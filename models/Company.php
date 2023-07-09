@@ -1,6 +1,10 @@
 <?php
 require_once 'database/connection.php';
 
+/** 
+ * Company class
+ *  
+ */ 
 class Company {
     private $conn;
     private $id;
@@ -11,6 +15,10 @@ class Company {
     private $email;
     private $telefone;
 
+    /**
+     * Function Construct
+     *
+     */    
     public function __construct() {
         // Chamada da função de criação da conexão
         $this->conn = createConnection();
@@ -74,24 +82,33 @@ class Company {
         $this->telefone = $telefone;
     }
 
+    /**
+     * Gets all companies
+     *
+     * Returns an array
+     */
     public function getAll() {
         $query = "SELECT * FROM empresas";
         
         $result = $this->conn->query($query);
 
-        // Verificar se há resultados
+        // Verify if there are result
         if ($result && $result->num_rows > 0) {
-            // Converter os resultados em um array
+            // Convert the result into an array
             $companies = [];
             while ($row = $result->fetch_assoc()) {
                 $companies[] = $row;
             }
-
-            // Retornar os usuários encontrados como JSON
+            
             return $companies;
         }
     }
 
+    /**
+     * Gets the company with the settled id.
+     *
+     * Returns an array
+     */    
     public function getCompanyById() {
         $query = "SELECT * FROM empresas where id = {$this->id}";
         
@@ -105,6 +122,11 @@ class Company {
 
     }
 
+    /**
+     * Gets the company with the settled cnpj.
+     *
+     * Returns an array
+     */     
     public function getCompanyByCnpj() {
         $query = "SELECT * FROM empresas where cnpj = '{$this->cnpj}'";
         
@@ -117,6 +139,11 @@ class Company {
         
     }
 
+    /**
+     * Gets the company with the settled telefone.
+     *
+     * Returns an array
+     */     
     public function getCompanyByTelefone() {
         $query = "SELECT * FROM empresas where telefone = '{$this->telefone}'";
         
@@ -129,6 +156,11 @@ class Company {
         
     }
 
+    /**
+     * Creates a company with the settled params.
+     *
+     * Returns a boolean
+     */     
     public function createCompany() {
         
         $query = "INSERT INTO EMPRESAS (razao_social, cnpj, endereco, nome_responsavel, email, telefone) VALUES (?, ?, ?, ?, ?, ?)";
@@ -139,6 +171,11 @@ class Company {
         return $stmt->execute();
     }
 
+    /**
+     * Updates a company with the settled id.
+     *
+     * Returns a boolean
+     */     
     public function updateCompany() {
         $query = "UPDATE EMPRESAS SET razao_social = ?, cnpj = ?, endereco = ?, nome_responsavel = ?, email = ?, telefone = ? WHERE id = ?";
 
@@ -148,6 +185,11 @@ class Company {
         return $stmt->execute();
     }
 
+    /**
+     * Deletes a company with the settled id.
+     *
+     * Returns a boolean
+     */     
     public function deleteCompany() {
         $query = "DELETE FROM EMPRESAS WHERE id = ?";
 

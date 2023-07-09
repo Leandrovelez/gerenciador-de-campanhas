@@ -11,11 +11,23 @@ class ParticipantController {
         $this->campagn = new Campagn();
     }
 
+    /**
+     * Retuns all the participants
+     *
+     * 
+     * @return json
+     */
     public function getAll() {
         $participants = $this->participant->getAll();
         return json_encode($participants);
     }
 
+    /**
+     * Retuns the participant with the given id
+     *
+     * @param  int $id 
+     * @return json
+     */
     public function getParticipant($id) {
         $participant = new Participant();
         $participant->setId($id);
@@ -28,6 +40,12 @@ class ParticipantController {
         }
     }
 
+    /**
+     * Create a participant with the given data
+     *
+     * @param  array $data 
+     * @return json
+     */
     public function createParticipant($data) {
         $participant = new Participant();
         $participant->setNome($data['nome']);
@@ -54,6 +72,12 @@ class ParticipantController {
         }
     }
 
+    /**
+     * Updates a participant with the given data
+     *
+     * @param  int $id, array $data
+     * @return json
+     */
     public function updateParticipant($id, $data) {
         $participant = new Participant();
         $participant->setId($id);
@@ -90,6 +114,12 @@ class ParticipantController {
         }
     }
 
+    /**
+     * Delets a participant with the given id
+     *
+     * @param  int $id 
+     * @return json
+     */
     public function deleteParticipant($id) {
         $participant = new Participant();
         $participant->setId($id);

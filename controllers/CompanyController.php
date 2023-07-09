@@ -4,16 +4,29 @@ require_once 'models/Company.php';
 class CompanyController {
     private $company;
 
+    //construtor    
     public function __construct() {
         $this->company = new Company();
     }
 
+    /**
+     * Returns all the companies
+     *
+     * 
+     * @return json
+     */   
     public function getAll() {
         $companies = $this->company->getAll();
 
         return json_encode($companies);
     }
 
+    /**
+     * Retuns the company with the given id
+     *
+     * @param  int $id id of the company
+     * @return json
+     */       
     public function getCompany($id) {
         $company = new Company();
         $company->setId($id);
@@ -22,6 +35,12 @@ class CompanyController {
         return json_encode($result);
     }
 
+    /**
+     * Creates a company with the given data
+     *
+     * @param  array $data 
+     * @return json
+     */        
     public function createCompany($data) {
         $company = new Company();
         $company->setRazaoSocial($data['razao_social']);
@@ -43,6 +62,12 @@ class CompanyController {
         
     }
 
+    /**
+     * Updates a company with the given id
+     *
+     * @param int $id, array $data 
+     * @return json
+     */       
     public function updateCompany($id, $data) {
         $company = new Company();
         $company->setId($id);
@@ -57,16 +82,6 @@ class CompanyController {
 
         if(!empty($companyExists)){
             
-            // $result = $company->updateCompany();
-        
-            // if($result){
-            //     return json_encode($result);
-            // }
-            
-            // return json_encode("Erro ao atualizar a empresa");
-
-
-
             $cnpjInUse = $company->getCompanyByCnpj();
             $telefoneInUse = $company->getCompanyByTelefone();
             
@@ -90,6 +105,12 @@ class CompanyController {
 
     }
 
+    /**
+     * Delets a company with the given id
+     *
+     * @param  int $id 
+     * @return json
+     */       
     public function deleteCompany($id) {
         $company = new Company();
         $company->setId($id);

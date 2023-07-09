@@ -1,6 +1,11 @@
 <?php
 require_once 'database/connection.php';
 
+/**
+ * Participant class.
+ *
+ * 
+ */ 
 class Participant {
 
     private $conn;
@@ -10,6 +15,7 @@ class Participant {
     private $email;    
     private $campanha_id;    
 
+    // Constructor
     public function __construct() {
         // Chamada da função de criação da conexão
         $this->conn = createConnection();
@@ -57,6 +63,11 @@ class Participant {
         $this->campanha_id = $campanha_id;
     } 
 
+    /**
+     * Gets all participants.
+     *
+     * Returns an array
+     */ 
     public function getAll() {
         $query = "SELECT * FROM participantes";
         
@@ -73,6 +84,11 @@ class Participant {
         }
     }
 
+    /**
+     * Gets the participant with the settled id.
+     *
+     * Returns an array
+     */ 
     public function getParticipantById() {
         $query = "SELECT * FROM participantes where id = {$this->id}";
         
@@ -86,6 +102,11 @@ class Participant {
         }
     }
 
+    /**
+     * Gets the participant with the settled cpf.
+     *
+     * Returns an array
+     */ 
     public function getParticipantByCpf() {
         $query = "SELECT * FROM participantes where cpf = '{$this->cpf}' LIMIT 1";
         
@@ -99,6 +120,11 @@ class Participant {
         }
     }
 
+    /**
+     * Creats a participant with the settled params.
+     *
+     * Returns a boolean
+     */ 
     public function createParticipant() {
         $query = "INSERT INTO participantes (nome, cpf, email, campanha_id) VALUES (?, ?, ?, ?)";
 
@@ -108,6 +134,11 @@ class Participant {
         return $stmt->execute(); 
     }
 
+    /**
+     * Updates the participant with the settled id.
+     *
+     * Returns a boolean
+     */ 
     public function updateParticipant() {
         $query = "UPDATE participantes SET nome = ?, cpf = ?, email = ?, campanha_id = ? WHERE ID = ?";
 
@@ -117,6 +148,11 @@ class Participant {
         return $stmt->execute(); 
     }
 
+    /**
+     * Delets a participant with the settled id.
+     *
+     * Returns a boolean
+     */ 
     public function deleteParticipant() {
         $query = "DELETE FROM participantes WHERE ID = ?";
 

@@ -13,9 +13,9 @@ class CampagnController {
     }
 
     /**
-     * Retorna todas as campanhas
+     * Retuns all the campagns
      *
-     * @param  
+     * 
      * @return json
      */    
     public function getAll() {
@@ -24,6 +24,12 @@ class CampagnController {
         return json_encode($campagns);
     }
 
+    /**
+     * Retuns the campagn with the given id
+     *
+     * @param  int $id 
+     * @return json
+     */   
     public function getCampagn($id) {
         $campagn = new Campagn();
         $campagn->setId($id);
@@ -35,7 +41,13 @@ class CampagnController {
             return json_encode("Campanha não encontrada");
         }        
     }
-
+    
+    /**
+     * Creates a campagn with the given data
+     *
+     * @param  array $data 
+     * @return json
+     */
     public function createCampagn($data) {
         $campagn = new Campagn();
         $campagn->setTitulo($data['titulo']);
@@ -61,6 +73,12 @@ class CampagnController {
         }
     }
 
+    /**
+     * Updates a campagn with the given data
+     *
+     * @param  int $id, array $data 
+     * @return json
+     */
     public function updateCampagn($id, $data) {
         $campagn = new Campagn();
         $campagn->setId($id);
@@ -92,6 +110,12 @@ class CampagnController {
         }
     }
 
+    /**
+     * Delets a campagn with the given id
+     *
+     * @param  int $id 
+     * @return json
+     */
     public function deleteCampagn($id) {
         $campagn = new Campagn();
         $campagn->setId($id);
