@@ -57,13 +57,33 @@ class CompanyController {
 
         if(!empty($companyExists)){
             
-            $result = $company->updateCompany();
+            // $result = $company->updateCompany();
         
-            if($result){
-                return json_encode($result);
-            }
+            // if($result){
+            //     return json_encode($result);
+            // }
             
-            return json_encode("Erro ao atualizar a empresa");
+            // return json_encode("Erro ao atualizar a empresa");
+
+
+
+            $cnpjInUse = $company->getCompanyByCnpj();
+            $telefoneInUse = $company->getCompanyByTelefone();
+            
+            if($cnpjInUse && $cnpjInUse[0]['id'] !=  $id){
+                return json_encode("Já existe uma empresa com esse CNPJ");
+            } else if($telefoneInUse && $telefoneInUse[0]['id'] !=  $id){
+                return json_encode("Já existe uma empresa com esse telefone");
+            } else {    
+
+                $result = $company->updateCompany();
+        
+                if($result){
+                    return json_encode($company->getCompanyById());
+                }
+                
+                return json_encode("Erro ao atualizar a empresa");
+            }
         } else {
             return json_encode("Empresa não encontrada");
         }        

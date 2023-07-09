@@ -1,12 +1,15 @@
 <?php
-require 'models/Campagn.php';
+require_once 'models/Campagn.php';
+require_once 'models/Company.php';
 
 class CampagnController {
     private $campagn;
+    private $company;
     private $companyExists;
 
     public function __construct() {
         $this->campagn = new Campagn();
+        $this->company = new Company();
     }
 
     /**
@@ -41,13 +44,21 @@ class CampagnController {
         $campagn->setDataInicio($data['data_inicio']);
         $campagn->setDataTermino($data['data_termino']);
 
-        $result = $campagn->createCampagn();
+        $company = new Company();
+        $company->setId($data['empresa_id']);
+        $companyExists = $company->getCompanyById();
+
+        if($companyExists){
+            $result = $campagn->createCampagn();
         
-        if($result){
-            return json_encode($result);
+            if($result){
+                return json_encode($result);
+            }
+            
+            return json_encode("Erro ao atualizar a campanha");
+        } else {
+            return json_encode("Empresa não encontrada");
         }
-        
-        return json_encode("Erro ao atualizar a campanha");
     }
 
     public function updateCampagn($id, $data) {
@@ -62,13 +73,20 @@ class CampagnController {
         $campagnExists = $campagn->getCampagnById();
 
         if(!empty($campagnExists)){
-            $result = $campagn->updateCampagn();
-            if($result){
-                return json_encode($campagn->getCampagnById());
-            }
+            $company = new Company();
+            $company->setId($data['empresa_id']);
+            $companyExists = $company->getCompanyById();
             
-            return json_encode("Erro ao atualizar a campanha");
-
+            if($companyExists){
+                $result = $campagn->updateCampagn();
+                if($result){
+                    return json_encode($campagn->getCampagnById());
+                }
+                
+                return json_encode("Erro ao atualizar a campanha");
+            } else {
+                return json_encode("Empresa não encontrada");
+            }
         } else {
             return json_encode("Campanha não encontrada");
         }

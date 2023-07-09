@@ -49,11 +49,11 @@ class Participant {
         $this->email = $email;
     } 
   
-    public function getCampanhaId(){
+    public function getCampagnId(){
         $this->campanha_id = $campanha_id;
     }
 
-    public function setCampanhaId($campanha_id){
+    public function setCampagnId($campanha_id){
         $this->campanha_id = $campanha_id;
     } 
 
@@ -87,7 +87,7 @@ class Participant {
     }
 
     public function getParticipantByCpf() {
-        $query = "SELECT * FROM participantes where cpf = {$this->cpf}";
+        $query = "SELECT * FROM participantes where cpf = '{$this->cpf}' LIMIT 1";
         
         $result = $this->conn->query($query);
 

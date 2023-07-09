@@ -1,11 +1,14 @@
 <?php
 require_once 'models/Participant.php';
+require_once 'models/Campagn.php';
 
 class ParticipantController {
     private $participant;
+    private $campagn;
 
     public function __construct() {
         $this->participant = new Participant();
+        $this->campagn = new Campagn();
     }
 
     public function getAll() {
@@ -30,15 +33,25 @@ class ParticipantController {
         $participant->setNome($data['nome']);
         $participant->setCpf($data['cpf']);
         $participant->setEmail($data['email']);
-        $participant->setCampanhaId($data['campanha_id']);
+        $participant->setCampagnId($data['campanha_id']);
 
-        $result = $participant->createParticipant();
-        
-        if($result){
-            return json_encode($result);
+        if($participant->getParticipantByCpf()){
+            return json_encode("Já existe um participante com esse CPF");
+        } else {
+            $campagn = new Campagn();
+            $campagn->setId($data['campanha_id']);
+            
+            if($campagn->getCampagnById()){
+                $result = $participant->createParticipant();
+            
+                if($result){
+                    return json_encode($result);
+                }
+                return json_encode("Erro ao criar o participante");
+            } else {
+                return json_encode("campanha não encontrada");
+            }
         }
-        
-        return json_encode("Erro ao criar o participante");
     }
 
     public function updateParticipant($id, $data) {
@@ -47,25 +60,31 @@ class ParticipantController {
         $participant->setNome($data['nome']);
         $participant->setCpf($data['cpf']);
         $participant->setEmail($data['email']);
-        $participant->setCampanhaId($data['campanha_id']);
+        $participant->setCampagnId($data['campanha_id']);
 
         $participantExists = $participant->getParticipantById();
 
         if(!empty($participantExists)){
-            //verificar aqui na tabela intermediária $campanha_participant->getCampagnParticipant()
             $cpfInUse = $participant->getParticipantByCpf();
-
-            if(!empty($cpfInUse)){
-                $result = $participant->updateParticipant();
-                if($result){
-                    return json_encode($participant->getParticipantById());
-                }
-                
-
-                return json_encode("Erro ao atualizar o participante");
+            
+            if($cpfInUse && $cpfInUse[0]['id'] !=  $id){
+                return json_encode("Já existe um participante com esse CPF");
             } else {
-                return json_encode("Já existe um participante com esse CPF nessa campanha");
+                $campagn = new Campagn();
+                $campagn->setId($data['campanha_id']);
+                
+                if($campagn->getCampagnById()){
+                    $result = $participant->updateParticipant();
+                    if($result){
+                        return json_encode($participant->getParticipantById());
+                    }
+                    
+                    return json_encode("Erro ao atualizar o participante");
+                } else {
+                    return json_encode("Campanha não encontrada");
+                }
             }
+
         } else {
             return json_encode("Participante não encontrado");
         }
