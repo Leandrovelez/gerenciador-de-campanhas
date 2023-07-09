@@ -17,6 +17,7 @@ class Company {
     }
 
     // Métodos getters e setters para acessar e modificar os atributos
+    
     public function getId($id){
         $this->id = $id;
     }
@@ -87,11 +88,8 @@ class Company {
             }
 
             // Retornar os usuários encontrados como JSON
-            return json_encode($companies);
+            return $companies;
         }
-
-        // Caso não haja resultados, retornar um JSON vazio
-        return json_encode([]);
     }
 
     public function getCompanyById() {
@@ -99,17 +97,12 @@ class Company {
         
         $result = $this->conn->query($query);
 
-        // Verificar se há resultados
         if ($result && $result->num_rows > 0) {
-            // Converter os resultados em um array
             $company[] = $result->fetch_assoc();
 
-            // Retornar os usuários encontrados como JSON
-            return json_encode($company);
+            return $company;
         }
 
-        // Caso não haja resultados, retornar um JSON vazio
-        return json_encode([]);
     }
 
     public function getCompanyByCnpj() {
@@ -117,10 +110,9 @@ class Company {
         
         $result = $this->conn->query($query);
 
-        // Verificar se há resultados
         if ($result && $result->num_rows > 0) {
             $company[] = $result->fetch_assoc();
-            return json_encode($company);
+            return $company;
         } 
         
     }
@@ -130,10 +122,9 @@ class Company {
         
         $result = $this->conn->query($query);
 
-        // Verificar se há resultados
         if ($result && $result->num_rows > 0) {
             $company[] = $result->fetch_assoc();
-            return json_encode($company);
+            return $company;
         } 
         
     }
@@ -145,10 +136,7 @@ class Company {
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("ssssss", $this->razao_social, $this->cnpj, $this->endereco, $this->nome_responsavel, $this->email, $this->telefone);
         
-        if ($stmt->execute()){
-            return json_encode('Empresa criada com sucesso');
-        }
-        return json_encode('Erro ao criar a empresa');
+        return $stmt->execute();
     }
 
     public function updateCompany() {
@@ -157,10 +145,7 @@ class Company {
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("sssssss", $this->razao_social, $this->cnpj, $this->endereco, $this->nome_responsavel, $this->email, $this->telefone, $this->id);
         
-        if ($stmt->execute()){
-            return json_encode('Empresa atualizada com sucesso');
-        }
-        return json_encode('Erro ao atualizar a empresa');
+        return $stmt->execute();
     }
 
     public function deleteCompany() {
@@ -169,10 +154,7 @@ class Company {
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("s", $this->id);
         
-        if ($stmt->execute()){
-            return json_encode('Empresa deletada com sucesso');
-        }
-        return json_encode('Erro ao deletar a empresa');
+        return $stmt->execute();
     }
 }
 

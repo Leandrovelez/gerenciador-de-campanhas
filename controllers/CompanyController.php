@@ -10,11 +10,8 @@ class CompanyController {
 
     public function getAll() {
         $companies = $this->company->getAll();
-        
-        // Defino o cabeçalho de resposta como JSON
-        header('Content-Type: application/json');
 
-        return $companies;
+        return json_encode($companies);
     }
 
     public function getCompany($id) {
@@ -22,10 +19,7 @@ class CompanyController {
         $company->setId($id);
         $result = $company->getCompanyById();
 
-        // Defino o cabeçalho de resposta como JSON
-        header('Content-Type: application/json');
-
-        return $result;
+        return json_encode($result);
     }
 
     public function createCompany($data) {
@@ -43,11 +37,8 @@ class CompanyController {
             return json_encode("Já existe uma empresa cadastrada com esse telefone");
         } else {
             $result = $company->createCompany();
-        
-            // Defino o cabeçalho de resposta como JSON
-            header('Content-Type: application/json');
 
-            return json_encode($result);
+            return json_encode("Empresa cadastrada com sucesso");
         }
         
     }
@@ -62,20 +53,41 @@ class CompanyController {
         $company->setEmail($data['email']);
         $company->setTelefone($data['telefone']);
 
-        $result = $company->updateCompany();
-        
-        // Defino o cabeçalho de resposta como JSON
-        header('Content-Type: application/json');
+        $companyExists = $company->getCompanyById();
 
-        return json_encode($result);
+        if(!empty($companyExists)){
+            
+            $result = $company->updateCompany();
+        
+            if($result){
+                return json_encode($result);
+            }
+            
+            return json_encode("Erro ao atualizar a empresa");
+        } else {
+            return json_encode("Empresa não encontrada");
+        }        
+
     }
 
     public function deleteCompany($id) {
         $company = new Company();
         $company->setId($id);
 
-        $result = $company->deleteCompany();
-        return $result;
+        $companyExists = $company->getCompanyById();
+
+        if(!empty($companyExists)){
+            
+            $result = $company->deleteCompany();
+        
+            if($result){
+                return json_encode($result);
+            }
+            
+            return json_encode("Erro ao deletar a empresa");
+        } else {
+            return json_encode("Empresa não encontrada");
+        }  
     }
 }
 
