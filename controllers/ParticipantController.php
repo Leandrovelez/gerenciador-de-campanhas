@@ -62,7 +62,8 @@ class ParticipantController {
                 return json_encode("Já existe um participante com esse CPF");
             } 
 
-            if($participant->getParticipantByEmail()){
+            if($participant->getParticipantByEmail
+            ()){
                 return json_encode("Já existe um participante com esse e-mail");
             } 
 

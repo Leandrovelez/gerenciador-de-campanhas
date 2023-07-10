@@ -1,0 +1,1046 @@
+{
+	"log": {
+		"version": "1.2",
+		"creator": {
+			"name": "Insomnia REST Client",
+			"version": "insomnia.desktop.app:v2023.4.0"
+		},
+		"entries": [
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 251.57800000000003,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8000/participant/5",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 09 Jul 2023 20:05:19 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 14,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\ntrue"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 251.57800000000003,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "participant"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 217.743,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8000/participant/3",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "\t{\n\t\t\"nome\": \"\",\n\t\t\"cpf\": \"\",\n\t\t\"email\": \"\",\n\t\t\"campanha_id\": 0\n\t}",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 04:10:27 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 108,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n[{\"id\":\"3\",\"nome\":\"Zezinho\",\"cpf\":\"452.379.788-99\",\"email\":\"zezinho@email.com\",\"campanha_id\":\"3\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 217.743,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "participant"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 261.96000000000004,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/participant",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "\t{\n\t\t\"nome\": \"\",\n\t\t\"cpf\": \"\",\n\t\t\"email\": \"\",\n\t\t\"campanha_id\": 0\n\t}",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 04:08:11 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 14,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\ntrue"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 261.96000000000004,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "participant"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 212.99499999999998,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/participant/5",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Sun, 09 Jul 2023 20:05:27 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 44,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n\"Participante n\\u00e3o encontrado\""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 212.99499999999998,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "participant/{id}"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 213.636,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/participant",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 04:09:45 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 216,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n[{\"id\":\"2\",\"nome\":\"Leandro Velez\",\"cpf\":\"452.379.788-96\",\"email\":\"leandrovelez@gmail.com\",\"campanha_id\":\"3\"},{\"id\":\"3\",\"nome\":\"Zezinho\",\"cpf\":\"452.379.788-94\",\"email\":\"zezinho@gmail.com\",\"campanha_id\":\"3\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 213.636,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "participant"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 258.198,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8000/campagn/2",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 03:51:50 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 14,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\ntrue"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 258.198,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "campagn"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 244.028,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8000/campagn/1",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\t\"titulo\": \"\",\n\t\t\"descricao\": \"\",\n\t\t\"empresa_id\": 0,\n\t\t\"data_inicio\": \"\",\n\t\t\"data_termino\": \"\"\n}",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 03:46:48 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 40,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n\"Campanha n\\u00e3o encontrada\""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 244.028,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "campagn"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 259.06600000000003,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/campagn",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\t\"titulo\": \"\",\n\t\t\"descricao\": \"\",\n\t\t\"empresa_id\": 0,\n\t\t\"data_inicio\": \"\",\n\t\t\"data_termino\": \"\"\n}",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 03:55:03 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 14,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\ntrue"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 259.06600000000003,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "campagn"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 214.386,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/campagn/12",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 02:45:04 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 199,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n[{\"id\":\"12\",\"titulo\":\"Campanha esquema de pir\\u00e2mide 8\",\"descricao\":\"Apenas para quem \\u00e9 trouxa de verdade\",\"empresa_id\":\"12\",\"data_inicio\":\"0000-00-00\",\"data_termino\":\"0000-00-00\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 214.386,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "campagn/{id}"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 220.242,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/campagn",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 04:10:12 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 176,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n[{\"id\":\"3\",\"titulo\":\"Campanha de doa\\u00e7\\u00e3o de sangue\",\"descricao\":\"venha doar sangue\",\"empresa_id\":\"1\",\"data_inicio\":\"2023-08-01\",\"data_termino\":\"2023-08-31\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 220.242,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "campagn"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 214.522,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8000/company/4",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 03:40:39 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 14,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\ntrue"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 214.522,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "company"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 219.224,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8000/company/3",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "\n\t{\n\t\t\"razao_social\": \"\",\n\t\t\"cnpj\": \"\",\n\t\t\"endereco\": \"\",\n\t\t\"nome_responsavel\": \"\",\n\t\t\"email\": \"\",\n\t\t\"telefone\": \"\"\n\t}\t\n ",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 02:31:07 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 49,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n\"O CNPj informado \\u00e9 inv\\u00e1lido\""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 219.224,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "company"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 248.941,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8000/company",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\t\"razao_social\": \"\",\n\t\t\"cnpj\": \"\",\n\t\t\"endereco\": \"\",\n\t\t\"nome_responsavel\": \"\",\n\t\t\"email\": \"\",\n\t\t\"telefone\": \"\"\n\t}\t",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 03:38:05 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 42,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n\"Empresa cadastrada com sucesso\""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 248.941,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "company"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 218.24699999999999,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/company/14",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 02:21:15 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 208,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n[{\"id\":\"14\",\"razao_social\":\"Luizinho bagun\\u00e7as\",\"cnpj\":\"52.745.216\\/0001-85\",\"endereco\":\"rua dos patos 77\",\"nome_responsavel\":\"luizinho\",\"email\":\"luizinho@email.com\",\"telefone\":\"(21)4033-0999\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 218.24699999999999,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "companies{id}"
+			},
+			{
+				"startedDateTime": "2023-07-10T04:27:11.445Z",
+				"time": 216.372,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8000/company",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "OK",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"name": "Date",
+							"value": "Mon, 10 Jul 2023 03:47:17 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						},
+						{
+							"name": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"name": "Content-type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"content": {
+						"size": 676,
+						"mimeType": "text/html; charset=UTF-8",
+						"text": "\r\n\r\n\r\n\r\n\r\n[{\"id\":\"1\",\"razao_social\":\"Empresa laranja\",\"cnpj\":\"85.784.442\\/0001-29\",\"endereco\":\"rua dos laranjas, 404, Vila do Burgu\\u00eas\",\"nome_responsavel\":\"playboy cretino\",\"email\":\"laranja@email.com\",\"telefone\":\"(11)4000-4040\"},{\"id\":\"2\",\"razao_social\":\"Fulano de tal ltda\",\"cnpj\":\"85.784.442\\/0001-29\",\"endereco\":\"rua dos laranjas, 404, Vila do Burgu\\u00eas\",\"nome_responsavel\":\"playboy cretino\",\"email\":\"laranja@email.com\",\"telefone\":\"(11)4000-4040\"},{\"id\":\"3\",\"razao_social\":\"Fastasma SA\",\"cnpj\":\"85.784.442\\/0001-29\",\"endereco\":\"rua dos laranjas, 404, Vila do Burgu\\u00eas\",\"nome_responsavel\":\"playboy cretino\",\"email\":\"laranja@email.com\",\"telefone\":\"(11)4000-4040\"}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 216.372,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "companies"
+			}
+		]
+	}
+}
