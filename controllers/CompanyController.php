@@ -150,7 +150,7 @@ class CompanyController {
      */
     public function validateInputs($data){
     
-        if(!isset($data['razao_social'])){
+        if(!isset($data['razao_social'])  || empty($data['razao_social']) ){
             return "O campo razao_social é obrigatório";
         }
         if(is_numeric($data['razao_social'])){

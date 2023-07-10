@@ -47,27 +47,33 @@ class ParticipantController {
      * @return json
      */
     public function createParticipant($data) {
-        $participant = new Participant();
-        $participant->setNome($data['nome']);
-        $participant->setCpf($data['cpf']);
-        $participant->setEmail($data['email']);
-        $participant->setCampagnId($data['campanha_id']);
+        $validate = $this->validateInputs($data);
 
-        if($participant->getParticipantByCpf()){
-            return json_encode("Já existe um participante com esse CPF");
+        if($validate){
+            return json_encode($validate);
         } else {
-            $campagn = new Campagn();
-            $campagn->setId($data['campanha_id']);
-            
-            if($campagn->getCampagnById()){
-                $result = $participant->createParticipant();
-            
-                if($result){
-                    return json_encode($result);
-                }
-                return json_encode("Erro ao criar o participante");
+            $participant = new Participant();
+            $participant->setNome($data['nome']);
+            $participant->setCpf($data['cpf']);
+            $participant->setEmail($data['email']);
+            $participant->setCampagnId($data['campanha_id']);
+
+            if($participant->getParticipantByCpf()){
+                return json_encode("Já existe um participante com esse CPF");
             } else {
-                return json_encode("campanha não encontrada");
+                $campagn = new Campagn();
+                $campagn->setId($data['campanha_id']);
+                
+                if($campagn->getCampagnById()){
+                    $result = $participant->createParticipant();
+                
+                    if($result){
+                        return json_encode($result);
+                    }
+                    return json_encode("Erro ao criar o participante");
+                } else {
+                    return json_encode("campanha não encontrada");
+                }
             }
         }
     }
@@ -79,38 +85,44 @@ class ParticipantController {
      * @return json
      */
     public function updateParticipant($id, $data) {
-        $participant = new Participant();
-        $participant->setId($id);
-        $participant->setNome($data['nome']);
-        $participant->setCpf($data['cpf']);
-        $participant->setEmail($data['email']);
-        $participant->setCampagnId($data['campanha_id']);
+        $validate = $this->validateInputs($data);
 
-        $participantExists = $participant->getParticipantById();
-
-        if(!empty($participantExists)){
-            $cpfInUse = $participant->getParticipantByCpf();
-            
-            if($cpfInUse && $cpfInUse[0]['id'] !=  $id){
-                return json_encode("Já existe um participante com esse CPF");
-            } else {
-                $campagn = new Campagn();
-                $campagn->setId($data['campanha_id']);
-                
-                if($campagn->getCampagnById()){
-                    $result = $participant->updateParticipant();
-                    if($result){
-                        return json_encode($participant->getParticipantById());
-                    }
-                    
-                    return json_encode("Erro ao atualizar o participante");
-                } else {
-                    return json_encode("Campanha não encontrada");
-                }
-            }
-
+        if($validate){
+            return json_encode($validate);
         } else {
-            return json_encode("Participante não encontrado");
+            $participant = new Participant();
+            $participant->setId($id);
+            $participant->setNome($data['nome']);
+            $participant->setCpf($data['cpf']);
+            $participant->setEmail($data['email']);
+            $participant->setCampagnId($data['campanha_id']);
+
+            $participantExists = $participant->getParticipantById();
+
+            if(!empty($participantExists)){
+                $cpfInUse = $participant->getParticipantByCpf();
+                
+                if($cpfInUse && $cpfInUse[0]['id'] !=  $id){
+                    return json_encode("Já existe um participante com esse CPF");
+                } else {
+                    $campagn = new Campagn();
+                    $campagn->setId($data['campanha_id']);
+                    
+                    if($campagn->getCampagnById()){
+                        $result = $participant->updateParticipant();
+                        if($result){
+                            return json_encode($participant->getParticipantById());
+                        }
+                        
+                        return json_encode("Erro ao atualizar o participante");
+                    } else {
+                        return json_encode("Campanha não encontrada");
+                    }
+                }
+
+            } else {
+                return json_encode("Participante não encontrado");
+            }
         }
     }
 
@@ -137,6 +149,42 @@ class ParticipantController {
         } else {
             return json_encode("Participante não encontrado");
         }
+    }
+
+    /**
+     * Validates the inputes given in data
+     *
+     * @param array $data 
+     * @return string
+     */
+    public function validateInputs($data){
+        if(!isset($data['nome'])  || empty($data['nome']) ){
+            return "O campo nome é obrigatório";
+        }
+        if(strlen($data['nome']) > 250){
+            return "O campo nome deve ter no máximo 250 caracteres";
+        }
+
+        if(!isset($data['cpf'])  || empty($data['cpf']) ){
+            return "O campo cpf é obrigatório";
+        }
+        if(!preg_match('/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/', $data['cpf'])){
+            return "O campo cpf é inválido";
+        }  
+
+        if(!isset($data['email'])  || empty($data['email']) ){
+            return "O campo email é obrigatório";
+        }
+        if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+            return "O campo email é inválido";
+        }  
+ 
+        if(!isset($data['campanha_id'])  || empty($data['campanha_id']) ){
+            return "O campo campanha_id é obrigatório";
+        }
+        if(!is_int($data['campanha_id'])){
+            return "O campo campanha_id deve ser int";
+        }          
     }
 }
 
