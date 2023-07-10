@@ -182,17 +182,21 @@ class CampagnController {
         if(!isset($data['data_termino'])  || empty($data['data_termino']) ){
             return "O campo data_termino é obrigatório";
         } 
-        
-        $data_inicio = DateTime::createFromFormat('d/m/Y', $data['data_inicio']);
-        $data_termino = DateTime::createFromFormat('d/m/Y', $data['data_termino']);
-        if($data_inicio && $data_inicio->format('d/m/Y') != $data['data_inicio']){
+
+        $data_inicio = DateTime::createFromFormat('Y-m-d', $data['data_inicio']);
+        $data_termino = DateTime::createFromFormat('Y-m-d', $data['data_termino']);
+
+        if($data_inicio && $data_inicio->format('Y-m-d') != $data['data_inicio']){
             return 'data_inicio inválida';
         }
 
-        if($data_termino && $data_termino->format('d/m/Y') != $data['data_termino']){
+        if($data_termino && $data_termino->format('Y-m-d') != $data['data_termino']){
             return 'data_termino inválida';
         }
-             
+
+        if($data_termino < $data_inicio){
+            return 'a data_termino não pode ser anterior à data_inicio';
+        }    
     }
 }
 

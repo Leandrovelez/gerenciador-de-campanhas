@@ -190,9 +190,9 @@ class CompanyController {
         if(!isset($data['email'])  || empty($data['email'])){
             return "O campo email é obrigatório";
         }
-        if(is_numeric($data['email'])){
-            return "O campo email deve ser uma string";
-        }
+        if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+            return "O campo email é inválido";
+        } 
         if(strlen($data['email']) > 250){
             return "O campo email deve ter no máximo 250 caracteres";
         }

@@ -21,7 +21,7 @@
             }else if(array_key_exists(2, $uri) && is_numeric($uri[2])){
                 echo $company->getCompany($uri[2]);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'POST'){
         
@@ -33,7 +33,7 @@
                 $dadosPost = json_decode($putData, true);
                 echo $company->createCompany($dadosPost);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'PUT'){
 
@@ -46,7 +46,7 @@
 
                 echo $company->updateCompany($uri[2], $dadosPUT);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'DELETE'){
             $uri = explode('/', $_SERVER['REQUEST_URI']);
@@ -54,7 +54,7 @@
             if(array_key_exists(2, $uri) && is_numeric($uri[2]) && $uri[1] === 'company'){
                 echo $company->deleteCompany($uri[2]);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }
 
@@ -67,7 +67,7 @@
             }else if(array_key_exists(2, $uri) && is_numeric($uri[2])){
                 echo $campagn->getCampagn($uri[2]);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'POST'){
         
@@ -77,7 +77,7 @@
 
                 echo $campagn->createCampagn($dadosPost);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'PUT'){
             $uri = explode('/', $_SERVER['REQUEST_URI']);
@@ -88,7 +88,7 @@
 
                 echo $campagn->updateCampagn($uri[2], $dadosPUT);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'DELETE'){
             $uri = explode('/', $_SERVER['REQUEST_URI']);
@@ -96,7 +96,7 @@
             if(array_key_exists(2, $uri) && is_numeric($uri[2]) && $uri[1] === 'campagn'){
                 echo $campagn->deleteCampagn($uri[2]);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }
 
@@ -109,7 +109,7 @@
             }else if(array_key_exists(2, $uri) && is_numeric($uri[2])){
                 echo $participant->getParticipant($uri[2]);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'POST'){
         
@@ -119,7 +119,7 @@
 
                 echo $participant->createParticipant($dadosPost);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'PUT'){
             $uri = explode('/', $_SERVER['REQUEST_URI']);
@@ -130,7 +130,7 @@
 
                 echo $participant->updateParticipant($uri[2], $dadosPUT);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }else if($_SERVER['REQUEST_METHOD'] === 'DELETE'){
             $uri = explode('/', $_SERVER['REQUEST_URI']);
@@ -138,12 +138,12 @@
             if(array_key_exists(2, $uri) && is_numeric($uri[2]) && $uri[1] === 'participant'){
                 echo $participant->deleteParticipant($uri[2]);
             }else{
-                echo 'endpoint inválido';
+                echo json_encode('endpoint inválido');
             }
         }
 
     }else{
-        echo 'Endpoint inválido';
+        echo json_encode('endpoint inválido');
     }
 
 ?>

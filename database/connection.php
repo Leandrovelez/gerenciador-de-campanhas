@@ -7,7 +7,7 @@ function createConnection(){
     $host = 'localhost';
     $username = 'root';
     $password = '';
-    $database = 'campanhas';
+    $database = 'gerenciador_de_campanhas';
 
     // Criação da conexão
     $conn = new mysqli($host, $username, $password, $database, 3307);

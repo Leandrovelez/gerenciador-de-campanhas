@@ -121,6 +121,24 @@ class Participant {
     }
 
     /**
+     * Gets the participant with the settled email.
+     *
+     * Returns an array
+     */ 
+    public function getParticipantByEmail() {
+        $query = "SELECT * FROM participantes where email = '{$this->email}' LIMIT 1";
+        
+        $result = $this->conn->query($query);
+
+        if ($result && $result->num_rows > 0) {
+            
+            $participant[] = $result->fetch_assoc();
+
+            return $participant;
+        }
+    }
+
+    /**
      * Creats a participant with the settled params.
      *
      * Returns a boolean

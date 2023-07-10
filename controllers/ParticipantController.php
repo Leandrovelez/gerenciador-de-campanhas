@@ -60,20 +60,24 @@ class ParticipantController {
 
             if($participant->getParticipantByCpf()){
                 return json_encode("Já existe um participante com esse CPF");
-            } else {
-                $campagn = new Campagn();
-                $campagn->setId($data['campanha_id']);
-                
-                if($campagn->getCampagnById()){
-                    $result = $participant->createParticipant();
-                
-                    if($result){
-                        return json_encode($result);
-                    }
-                    return json_encode("Erro ao criar o participante");
-                } else {
-                    return json_encode("campanha não encontrada");
+            } 
+
+            if($participant->getParticipantByEmail()){
+                return json_encode("Já existe um participante com esse e-mail");
+            } 
+
+            $campagn = new Campagn();
+            $campagn->setId($data['campanha_id']);
+            
+            if($campagn->getCampagnById()){
+                $result = $participant->createParticipant();
+            
+                if($result){
+                    return json_encode($result);
                 }
+                return json_encode("Erro ao criar o participante");
+            } else {
+                return json_encode("campanha não encontrada");
             }
         }
     }
@@ -101,23 +105,28 @@ class ParticipantController {
 
             if(!empty($participantExists)){
                 $cpfInUse = $participant->getParticipantByCpf();
+                $emailInUse = $participant->getParticipantByEmail();
                 
                 if($cpfInUse && $cpfInUse[0]['id'] !=  $id){
                     return json_encode("Já existe um participante com esse CPF");
-                } else {
-                    $campagn = new Campagn();
-                    $campagn->setId($data['campanha_id']);
-                    
-                    if($campagn->getCampagnById()){
-                        $result = $participant->updateParticipant();
-                        if($result){
-                            return json_encode($participant->getParticipantById());
-                        }
-                        
-                        return json_encode("Erro ao atualizar o participante");
-                    } else {
-                        return json_encode("Campanha não encontrada");
+                } 
+
+                if($emailInUse && $emailInUse[0]['id'] !=  $id){
+                    return json_encode("Já existe um participante com esse e-mail");
+                } 
+
+                $campagn = new Campagn();
+                $campagn->setId($data['campanha_id']);
+                
+                if($campagn->getCampagnById()){
+                    $result = $participant->updateParticipant();
+                    if($result){
+                        return json_encode($participant->getParticipantById());
                     }
+                    
+                    return json_encode("Erro ao atualizar o participante");
+                } else {
+                    return json_encode("Campanha não encontrada");
                 }
 
             } else {
