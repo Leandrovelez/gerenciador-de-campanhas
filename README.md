@@ -175,10 +175,10 @@ API REST para um teste de desenvolvedor Backend PHP
   Retorno: <br>
   true
 
-  #Erros
+  # Erros
   - Em caso de erros e/ou campos inválidos, a API retorna uma mensagem descrevendo qual o erro
  
-  #Informações
+  # Informações
 
   - Dentro da pasta database tem o arquivo .sql do banco
   - Dentro da pasta rotas tem o arquivo de rotas para facilitar os testes com insomnia/postman (lembrando que a API só aceita dados em     
